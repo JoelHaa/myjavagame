@@ -3,10 +3,12 @@ package mygame;
 public class Player {
 	int playerPosX;
 	int playerPosY;
+	String playerName;
 	
-	public Player() {
+	public Player(String name) {
 		playerPosX = 0;
 		playerPosY = 0;
+		playerName = name;
 	}
 	
 	public void move(String direction) {
@@ -33,5 +35,11 @@ public class Player {
 	
 	public String getPlayerPosition() {
 		return("(" + playerPosX + "," + playerPosY + ")");
+	}
+
+	public String getPlayerStats() {
+		String playerStats = "--- Player Statistics ---\n" + 
+							" Player name: " + playerName + "\n";
+		return(playerStats);
 	}
 }

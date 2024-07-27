@@ -1,6 +1,5 @@
 package mygame;
 import java.util.Scanner;
-import mygame.Player;
 
 public class Main {
 	
@@ -10,13 +9,17 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Hello, and welcome to my game!");
 		Scanner scan = new Scanner(System.in);
-		Player player = new Player();
+		System.out.print("What is your name?: ");
+		Player player = new Player(scan.nextLine());
 		
 		while(gameIsActive) {
 			System.out.print("Enter input: ");
 			String userInput = scan.nextLine();
 			if(userInput.equals("help")) {
-				System.out.println("Available commands: 'help', 'map', movement: 'n' 's' 'w' 'e'");
+				System.out.println("Available commands: 'help', 'stats', 'map', movement: 'n' 's' 'w' 'e'");
+			}
+			else if(userInput.equals("stats")) {
+				System.out.println(player.getPlayerStats());
 			}
 			else if(userInput.equals("map")) {
 				System.out.println(player.getPlayerPosition());
